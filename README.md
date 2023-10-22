@@ -6,12 +6,19 @@ and continuation passing style uses of Seastar.
 
 # Getting started
 
-Install dependencies (assuming a recent verison of Ubuntu such as 22.04):
+Make sure the submodule dependencies are up-to-date:
 
 ```bash
 git submodule update --init --recursive
 seastar/install-dependencies.sh
 apt-get install -qq ninja-build clang
+```
+
+You can build and run the project inside a Docker container:
+
+```bash
+docker build -t seastar-dev .
+docker run -it --network=host --rm -v $(pwd):/src --workdir /src seastar-dev /bin/bash
 ```
 
 Configure and build:
